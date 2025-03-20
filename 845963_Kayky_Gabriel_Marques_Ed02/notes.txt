@@ -1,0 +1,257 @@
+-----------------------------------------/-------\---------------------------------------------------
+
+    Ola Theldo! Um otimo dia, tarde ou noite ou para qual momento que esteja lendo isto!
+Esta parte do meu codigo e destinada para minhas proprias observaçoes, metos que usei
+e a onde eu achei, erros que foram cometidos e como eu consegui percorrer todo este processo.
+    Sinta-se a vontade para ver, ler e comentar sobre meus comentarios e minhas *NOTAS*
+muito obrigado desde ja! 
+
+----------------------------------------/_  NOTAS  _\------------------------------------------------
+
+* Nao consegui encontrar a biblioteca auxiliar "io.h"
+vou usar a stdio.h mesmo ate encontrar
+
+*Lembrar de pedir par ver os dados, geralmente o erro se esconde no que nao se ver
+
+
+Method_01
+
+Sua ideia se basea em ver se o numero e par ou impar (considerando 0)
+a forma mais facil de se fazer isso e vendo se o resultado da divisao por 2
+"number % 2 == 0" para os casos que "number" e par e seu  contrario, devolver
+o resultado como impar.
+
+Method_02
+
+A ideia e a mesma coisa do Method_01, sendo que a unica necessida e em sua condicao
+colocar o operador "&&" (AND), AND da a ideia e "e", com isso minha condicao so sera verdade
+se se ambas forem verdade.
+
+Method_03 e Method_04
+
+Sua ideia ainda e a mesma dos outros 2 que ja realizeis, a difereça e seu "dominio"
+como e um intervalo aberto entre (20:50) outros numeros existem, porem nao fazem parte
+deste conjunto. Ja o Method_04 e a mesma coisa, so que fora do conjunto, a inexistencia 
+de outros numeros.
+
+Method_05
+Ja o Method_05 e a juncao do terciero e o quarto, dito isso , Intervalo aberto: 
+(a,b) e o intervalo fechado [c,d]. Com isso a interseção sera quando ambos conjuntos
+dividirem parte de si mesmas.
+                    numeros a serem comparados [10:30] (20:40)
+    com isso deve pegar o maior numero entre, |A| e |C| [30] e o menor entre |B| e |D|, 
+(20), logo vamos ter que verificar se os numeros do exemplo estao presentes no conjunto 
+(20, 30] 
+
+
+Method_06
+O metodo 6 pede para fornecer dois numero e verificar se sao par ou impar e quais deles sao 
+disto, decidi fazer com ponteiro, acho que ficaria mais facil de implementar
+
+
+Method_07
+o metodo 7 e quase a mesma coisa do 6, sua difereça e usar uma grande, 
+para ver se o primeiro e par e negativo e o segundo numero e impar e negativo
+quantidade de condicoes e de contradicoes delas (else)
+
+
+Method_08
+O metedo 8 é uma versao mais "complicada" do metodo 7, ja que eu tenho que comparar os valores do
+meu array, como eu ja fiz um ponteiro de array (*Array) vai ser mais facil de percorrer e verificar 
+cada parte dele.
+
+    Depois da aula de hoje (25/02) eu fiquei pensativo, e se o usuario tentar prencher tres bilhoes
+e tentar comparar com 0.0004? nao sei se meu codigo de que estou fazendo agora seja capaz de conter
+esse tipo de conteudo...
+
+    Optei em fazer um metodo nomeado de "comp_number" uma abreviaçao para "comparison_numbers"
+que como seu nome o denomina, vai comparar seus numeros. usei dois ponteiros double, dentro dele
+terar uma variavel temporaria que vai verificar se o numero e maior ou menor que o segundo. Eu sei
+que e um exagero fazer isso tudo para comparar dois numeros em um simples array, mas sla.
+
+Method_09
+    Metodo 9 e uma versao estendida do metodo 8, a difereça vai ser adicionar uma variante em seu 
+escopo, e dizer se ela pertence á "A" e "C" (a mesma ideia de intervalos ). Lembrar de caso os numeros
+forem iguais, retornar a 1.
+
+    Bom, agora que eu fiz o comp_number, vai ficar mais facil de fazer meu metodo auxiliar para realizar
+a fazer esta atividade, vou usar a variavel "temp" que ja foi citada em outras atividades para
+conter a terciera variavel e verificar se ela pertence ao seu inervalo 
+
+Method_10 
+    A diferença entre o Method_09 e que ele pede para printar se o numero esta entre o primeiro 
+e o ultimo
+e
+     eu sem querer fiz ele no Method_09 kkkkk 
+
+Method_11
+    O metodo 11 (02E1), e ler 3 caracteres e comparar se o "do meio " esta entre a prmeira e da ultima  
+letra.
+    Reutilizando o metodo ja comentado (comp_number) e trocando o seus conceitos como verficar os numeros, mas para, 
+verificar caracteres. Decidi usar uma variavel booleana, disto, se as palavras forem entre elas, retornar um ponteiro para
+true, e caso nao tiver nada, retornarar false.
+
+    Tentei usar o tipo boolean mas eu nao consegui... depois eu vou tentar usar outro jeito de implementar ele, como se
+trata de um metodo, é impossivel a ideia de retornar, pensei em usar uma funcao para fazer, porem, nao deu muito certo 
+estou lendo forumns para ver como posso fazer isso.
+    Depous de mais de 1h eu entendi o que era!
+
+    Method_12
+E o inverso da do metodo 11, ja tenho o molde agora e so implementar ele 
+
+                            //------ Consideraçoes ------\\
+    A atividade foi focada extremaente em passar condicoes, com isso, o reforço com a caltela e a 
+passagem das informaçoes logicas com sua sintaxe e indispensavel. Comecei segunda feira e terminei quarta, 
+quis explorar coisas como: metodos auxiliares,ponteiro, array's, para me ajudar e diversificar do habitual
+usando logicas como a booleana para realmente ter novo desafio! No mais, os exercios sem colocar estes meus "desafios"
+seria mais facil e a minhas duvidas consegui sanar em sites como :
+stack overflow
+stack overflow brasil
+
+e inteligencias artificiais como:
+GPT 
+claude.ai
+Deepseak
+    Claro, nunca buscando a resposta de bandeja, afinal acaba com o sentido proposto em meus desafios. 
+Mas como uma forma de mentoria e auxilio quando nao entendi meu erro. No mais, consegui formar e contorar duvidas
+que eu tinha e desenvolvi ao realizar esta atividade e sinto um pouco mais preparado para as proximas atividades!
+    Ate o proximo ED.
+
+    845963_Kayky_Gabriel_Marques_Ed_02.
+
+
+
+
+Ex: 
+    primeiro: A
+
+    Meio: D
+
+    Ultimo: F
+
+    A| B| C| D| E| f
+        |_> "D" esta ente "A" e "F"
+
+---------erros---------
+
+Method_04
+ao inves de colocr if (number > 20 && number < 50) meu codigo
+lia como se fosse um conjunto aberto, erro de logica
+
+resolucao: 
+De: if (number >= 20 && number <= 50)
+Para: if (number > 20 && number < 50)
+
+Method_05
+Os erros que eu cometi foi em torde nao ter errado a logica de ver se
+esta na interseção ou faz parte dos outros conjuntos. 
+
+De: 
+    if (number >= 20 && number < 30)
+    if (number <= 20 && number >= 40 )
+    if (number < 10 && number > 30 )
+
+Para: 
+    if (number > 20 && number <= 30)
+    if (number >= 10 && number <= 30)
+    if (number > 20 && number < 40)
+
+Method_06
+    Primeiro erro que ocorreu foi o o warinnig que recebi, passei duas condicoes de tipo diferentes
+
+    Aparentemente eu so errei o fato de nao ter passado o endeço doq meu ponteiro vai apontar
+    e um erro bobo, mas eu fico cometendo isso 
+
+    De:
+        int *Array [2] = {number, second_number};
+        printf("O valor [%d] na posicao [%d] e par", *Array, i);
+
+    Para:
+       int *Array [2] = {&number, &second_number};
+        printf("O valor [%d] na posicao [%d] e par", *Array[i], i + 1); 
+        pode se ver que nessa parte eu esqueci de mostar o que eu estava apontado
+        e com isso foi colocado com lixo!
+
+Method_09
+
+    O codigo nao funciona, aparentemente e erro da sintaxe dos ponteiros e de como eles foram passados
+    disto, acho melhor trocar a forma que passei os parametros
+
+    Foi exatamente isto:
+//------
+    De:
+    if (between <= first && between >= last) 
+
+    Para: 
+    if ((*between >= *first && *between <= *last) || (*between <= *first && *between >= *last))
+//------
+    De: 
+    if (between == first || between == last) 
+
+    Para:
+    if (*between == *first && *between == *last) 
+
+//------
+    Na hora da condicao para ver se meus ponteiros estao apontando par o nulo esta tambem errada
+
+    De: 
+    if (first != NULL && between != NULL && last != NULL) 
+
+    Para: 
+    if (first != NULL && between != NULL && last != NULL) { 
+    // Código principal
+    } else {
+        printf("Erro: Um ou mais ponteiros são NULL.\n");
+    }
+//------
+
+Method_11
+    1 Erro 
+    Forma errada que foi declarado minha funcao
+    De:     int between_char (char * first, char *between ,char * last) 
+
+    Para:   Bool between_char (char * first, char *between ,char * last)
+
+com isso vemos que, trocamos a funcao de inteiro para o um operador logico de sim ou nao,
+
+
+    2 Erro 
+    Tentar usar o "print" para printar o operador booleano 
+
+    3Erro 
+    Na hora de realizar o retorno que saiu errado, estava fazendo o if com as informaçoes que deveria ser no 
+    seu retorno 
+
+    De: 
+    if ((*between >= *first && *between <= *last) || // caso "first" seja menor que "between"
+            (*between <= *first && *between >= *last)){  // caso "first" seja menor que "between"
+               return true;  
+
+         } else {
+            return false;
+         }  
+
+    Para: 
+
+    if (*between == *first && *between == *last) {
+        return false;
+    }
+
+    return (*between >= *first && *between <= *last) || (*between <= *first && *between >= *last);
+
+    4 Erro
+    A implementacao na chamada da sua funcao no Method_11
+
+    De: Nao tinha forncecido antes
+
+    Para:
+     printf("O caractere '%c' está entre '%c' e '%c'\n", b, a, c);
+    } else {
+        printf("O caractere '%c' NÃO está entre '%c' e '%c'\n", b, a, c);
+    }
+
+ 
+
+
+    
+
