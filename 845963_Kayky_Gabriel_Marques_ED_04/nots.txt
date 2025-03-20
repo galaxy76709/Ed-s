@@ -1,0 +1,189 @@
+-------------// NOTES \\-------------
+
+    Method_01
+
+    A ideia do metodo 1 e como ja vimos em alguns Ed's passados, ler um certo numero [N], fazer uma array dele para conter (seu index)
+e ver se esses numeros fazem parte de um intervalo fechado [A : B]
+    Usando uma funcao que recebe os paramentros fornecidos pelo metodo, ela cria duas variaves para auxiliar na funcao 
+       int     count = 0; 
+       double *ptr   = array;
+
+       usando : bool if_true = (*ptr >= first_interval && *ptr <= second_interval);
+
+    faz com que a sentença da escrita fique mais facil de ler assim que eu precisar de usar-la mais de uma vez
+vai ser mais pratico de usar. 
+
+
+Method_02
+  A ideia deste metodo era contar e mostrar a quantidades de letras minusculas maiores que 'c' e 'p'
+decidi seguir a mesma ideia que usei no Ed_03 onde eu usei recursao para resolver esse desafio.
+  method 2 foi um dos mais compicados, foi um dos mais complicado. a quantidade de erro que tive para ler e verificar
+ate o final da string, ela simplesmente a entrada colocava lixo ao iniciar e no final era quase impossivel de resolver
+tive quase um dia interio para ver se resolvia
+
+
+Method_03 & method_04
+  e a mesma coisa do 2, sem a parte da dor de cabeça, passando do metodo 07 para a chamada de sua funcao 
+uma string que sempre que em sua condicao foi verdade, sera atribuido na posicao a mesma letra (char) que 
+faz parte de sua condicao e adicionando uma contagem e uma variavel em sua chamada para ela receber o valor
+passado por um ponteiro.
+
+
+Method_05
+  Adicionando uma variavel booleana que verifica se sao caracteres maiusculos e outra para ver se 
+as palavras sao maiores que c maiusculo/ minusculo e menores que p maiusculo/ minusculo
+
+
+Method_06
+  O metodo 6 e muda do metodo 5 e 4 tem que passar por uma funcaoo definida para receber uma cadeia de caracteres como parametro
+usando a ideia do metodo tres e quatro para funcionar
+
+Method_07
+  o metodo 7 tem a ideia de receber um conjunto numerico e apartir dele, assim que ler-lo, converter para interito, apartir disso usando 
+a tabela assic e uma das formas de conversao:
+
+          // conversao de char para int
+           int value = letter[i] - '0';
+           number = (number * 10) + value;
+
+vai receber o char e diminuir lo por um char de valor '0' e atribuir o novo valor para "value" 
+com isto o 'number' sera multiplicado e por 10 e somado o valor de value 
+
+assim o valor de char sera convertido para int 
+
+
+method_11
+  a ideia por tras deste metodo e encontrar caractere alfanumericos e com isso ver se estas palavras contem mais de 3 palavras
+(desconsiderar palavras com 3 ou menos palavras ex: 1A2 -> falso somente 3 caracteres 
+                                                  !aaa  -> falso alem de conter 3 caracteres contem simbolo nao alfanumerico 
+                                                   A1b2 -> verdadeiro, so contem alfanumericos e contem mais de 3 caracteres) 
+
+  Uma ideia de fazer isso e assim que passar os paramentros para a funcao, apartir de um contador que sempre que aparece um alfanumerico 
+adiciona mais um a sua contagem e quando aparecer caractere que nao e alfanumerico reinicar ele, se o contador for maior que 3, adicionar retornar
+um ao contador principal (usar um ponteiro para que seja mais facil na hora de retornar mais de uma coisa).
+  Vou usar a ideia do method_10 para ajudar na formacao da funcao 
+
+
+  method_12
+  A funcao devera receber duas string e apartir deles, ver qual das duas strings contem a maior quantidade de caracteres
+a funcao que eu imagino e receber a string de cada um e apartir de um loop de repeticao, e contar a quantidade em seu index 
+com isso em sua chamada adicionar esse valor em uam variavel, e ao final, comparar-las em busca da maior 
+
+
+
+
+
+-------------// ERROS \\-------------
+
+    Method_01
+
+    De:   
+          bool if_true = (*ptr >= if_true && *ptr <= second_interval); 
+     for ( pt r < array + n_numbers; ptr++ ;) { 
+       if (if_true) {
+         printf("O numero [%.2lf] esta no intervalo [ %.2lf : %.2lf ] ", *ptr, firts_interval , second_interval);
+           count++; 
+       } else { 
+         printf("O numero [%.2lf] nao esta no intervalo [ %.2lf : %.2lf ] ", *ptr, firts_interval , second_interval);
+      }
+   }
+
+
+    Para:
+       for ( ptr < array + n_numbers; ptr++ ;) { // -> loop para "caminhas" com as posicoes que array aponta
+
+      bool if_true = (*ptr >= if_true && *ptr <= second_interval); // condicao booleana
+       if (if_true) { // -> condicao principal 
+         printf("O numero [%.2lf] esta no intervalo [ %.2lf : %.2lf ] ", *ptr, firts_interval , second_interval);
+           count++; // -> contador solicitado pelo enunciado              // lembrar de colocar o "*"
+       } else { 
+         printf("O numero [%.2lf] nao esta no intervalo [ %.2lf : %.2lf ] ", *ptr, firts_interval , second_interval);
+      }
+   }
+
+    Como da para ver, o if esta fora do meu for, e com isso, seu valor NUNCA vai mudar, apartir que ele receber o primeiro valor, ele 
+irar realizar todas as comparacoes somente com os mesmos valores.
+
+    Errei algumas coisas engraçadas neste ed.. tipo meu for
+    De: for ( ptr < array + n_numbers; ptr++ ;)
+
+    Para: 
+    for (; ptr < array + n_numbers; ptr++ )
+
+    Fui atras de saber o por que essa pequena mudança no ';' fez entrar em loop invinito 
+    aparentemente foi por isso:
+
+    O primeiro campo (inicialização): colocar a condição (ptr < array + n_numbers) onde deveria estar a inicialização.
+    A condição (segundo campo): Foi deixada vazia, então o C (linguagem) entende isso como "sempre verdadeiro". Isso cria um loop infinito.
+    A sintaxe do incremento (terceiro campo): Está correta, mas sem a condição no meio, o loop nunca para.
+
+
+
+--------------------\\--------------------------
+
+   Method_03 && Method_02
+  Nao que seja completamente um erro mas forma que vi e que foi implementado, nas ultimas aulas vimos
+sobre limite logico e limite fisico e eu tentei fazer como o professor disse. nao imaginei como seria tao dificil
+implementar isso. tanto que eu tive que ceder por que eu ja nao sabia mais como que fazer
+
+uma das ideias foi o uso de
+
+   size_t len = strlen(letter);
+   if (len > 0 && letter[len - 1] == '\n') {
+       letter[len - 1] = '\0';
+   }
+
+   onde que seu passo a passo e:
+
+size_t len = strlen(letter);
+
+A função strlen(letter) retorna o tamanho da string letter, ou seja, quantos caracteres existem antes do caractere nulo ('\0'),
+que marca o final de uma string
+
+O valor retornado é armazenado na variável len.
+if (len > 0 && letter[len - 1] == '\n')
+
+Primeiro, verifica se len > 0 para garantir que a string não está vazia (evitando acessar um índice inválido).
+Depois, letter[len - 1] == '\n'
+
+verifica se o último caractere da string é uma quebra de linha ('\n').
+letter[len - 1] = '\0';
+
+Se a condição for verdadeira, significa que a string termina com uma quebra de linha ('\n').
+O código então substitui esse caractere por '\0', que marca o fim da string em C.
+Isso efetivamente remove a quebra de linha, encurtando a string.
+
+entao com isso alem de ler o espaço em branco, creio eu que consegui ter mais controle em sua leitura
+
+   while (*letter != '\0') 
+
+usei isso, sei que nao e bom, muito menos seguro. vou ver oq eu posso fazer
+
+  foi usado 
+  if (fgets(letter, sizeof(letter), stdin) == NULL) 
+
+Passo a Passso: 
+
+  fgets(letter, sizeof(letter), stdin)
+
+
+Lê uma linha do teclado (stdin). Armazena o texto digitado na variável letter. 
+Lê no máximo sizeof(letter) - 1 caracteres e adiciona '\0' no final.
+
+mas por que sizeof(letter)?
+
+Se letter for um array, sizeof(letter) retorna o tamanho total do array. Isso evita estouro de buffer (leitura além da memória permitida).
+
+por que do == NULL 
+Se fgets() não conseguir ler nada (por erro ou EOF), ela retorna NULL.
+O if verifica essa condição e executa um bloco de código caso NULL seja retornad
+
+--------------------//--------------------------
+
+
+method_11
+
+Contagem de caracteres alfanuméricos maior que 3
+
+O incremento de (*count)++ ocorre sempre que local_count > 3, mas ele nunca é resetado. Assim, pode levar a contagens erradas se processar múltiplas palavras.
+Correção: Deve ser redefinido adequadamente em cada iteração.
