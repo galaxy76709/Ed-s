@@ -1,0 +1,191 @@
+-----------------------------------------/-------\---------------------------------------------------
+
+----------------------------------------/_  NOTAS  _\------------------------------------------------
+
+Method_01
+
+ A ideia por tras desse metodo e um vetor que nele, apartir de um numero "N" que vou declarar carinhosamente de 
+ N_numberes, com muita criatividade e com ele, sera declarado o tamanho do vetor.
+    apartir disso, sera feito uma pa (progressao aritimetica), sendo sua razao de (R = 3 ) -> sera anunciada como rate_of
+Ex: N_numberes = 5 rate_of = {3, 6, 9, 12, 15} 
+
+A logia da Pa e a seguinte:
+
+                    An = a1 + ( n - 1 ) * R
+
+    
+    An -> termo geral ()
+    a1 -> primeiro termo 
+    n -> posicao do termo (N_numberes)
+    R -> razao  (rate_of)
+
+        Aplicando a formula seria
+
+                A5 = 3 + (5 - 1 ) * 3
+
+
+        Sua sequencia e
+        a1 =  3     =  3 
+        a2 =  3 + 3 =  6
+        a3 =  6 + 3 =  9
+        a4 =  9 + 3 = 12
+        a5 = 12 + 3 = 15 
+
+
+//--
+
+
+Method_02
+
+ O objetivo do metodo 02 e o mesmo do 1, porem, sua ideia e buscar quando sao multiplos de 5 e 3
+ portanto minha raxao devera ser 15, trirando a diferença dos termos:
+
+        a1 =  30 - 15    =  15 
+        a2 =  45 - 30    =  15
+        a3 =  60 - 45    =  15
+        a4 =  75 - 60    =  15
+
+    Portanto 
+    A razao             = 15
+    Primeiro termo e    = 15
+    e n                 = 5
+
+
+//--
+
+
+Method_03 
+
+    o metodo 03 retrata uma PG, pode se perceber pois:
+
+    a2/a1   =    256/1024  -> é 1/4 
+    a3/a2   =      64/156  -> é 1/4 
+    a4/a3   =       16/64  -> é 1/4 
+    a5/a4   =        4/16  -> é 1/4 
+
+    A equacao por tras disso e 
+
+    An = a1 * R ^(n-1)
+    primeiro termo: 1024
+    razao: 1/4
+    e n:   5
+
+
+//--
+
+Method_04 
+    o metodo 04 retrada uma pa, a inversa do metodo 01, com isso, a funcao devera dividir o valor por sua razao
+o 1/3 e com isso permanecer ate uma quantidade N de vezes 
+
+Ex: 
+N = 5
+
+1/3 1/6 1/9 1/12 1/15...
+
+
+Method_05
+
+    metodo 05 pede para ler uma quantidade inteira do teclado e, mediante um procedimento,  
+testar a função para gerar valores pares crescentes nos denominadores sua logica dividir seu valor por um e mostrar ele na tela 
+a ultilizacao de pow, em sua base foi feita assim:
+         reverse_even [i] =   1.0 / pow(new_value, vector[i]);  
+    
+    dessa forma apos a atribuicao de new_value e elevar ele apartir do index do vector (posicao onde i esta, nao o valor de i) de i encotro o resultado que quero
+e apos minhas operaçoes, ele vai atribuir-lo onde index esta 
+            Ex:   1 1/x^2 1/x^4 1/x^6 ...
+
+
+Method_06
+    Metodo 06 pede para calcular a soma dos primeiros valores positivos começando no valor 3, multiplos de 3 e nao multiplos de 4. 
+Testar essa funcao para quantidades diferentes e mostrar os resultados em outro metodo. 
+    Com isso, uma logica que eu usei foi declarar variaveis booleanas
+
+         bool is_mult_four  =  (!(vector[i] % 4 == 0 )  &&  (vector[i] % 3 == 0)); // funcao auxiliar para condicao 
+        sendo esta primeira, uma variavel para verificar se a posicao do vetor / seu valor, e divisivel por 4 e se o mesmo e divisil por tres 
+    com isso, a primeira parte do desafio foi realizada 
+
+         bool just_positive = (  vector[ i ] >=  0 );
+        com essa, e para verificar se o valor e positivo, caso seja ele nao va adicionar-lo a soma 
+
+Method_07
+
+    calcular a soma dos inversos (1/x) dos primeiros valores positivos, começando no valor 4, múltiplos de 4 e não múltiplos de 5. 
+Testar essa função para quantidades diferentes e mostrar os resultados em outro método. 
+    Minha ideia foi andar com o array sempre com seus valores de 4 em 4 e adicionar duas variaveis booleanas sendo: 
+
+         bool is_mult_four = (vector[i] % 4 == 0);
+         bool is_mult_five = (vector[i] % 5 == 0);
+         bool is_positive = (vector[i] >= 0);
+
+         sendo elas respectivamentes: verificar se caso for multiplo de 4 se for multiplo de 5 e se for positivo seu valor
+
+                  if (is_mult_four && !is_mult_five && is_positive) {
+             result += 1.0 / vector[i];
+            }   
+        E apartir de sua condicao principal, e notavel que caso for postiva, diferente de multiplo de 5 e for multiplo de 4 sua acao sera realizada
+    caso contrario o array continuarar sendo varrido e verifiado 
+    
+
+                            //------ ERRO ------\\
+
+    Globais: 
+    |_> nesta parte e so aqueles erros bobos mas que mesmo assim, sao erros 
+
+        adicionar o %d quando tratamos de double, contas que precisam de valores reais, sao truncados e disso, 
+        multiplicacoes, divisoes e outros tipos de operaçoes matematicas, nao sao capazes de funcionar por conta da forma que foram passadas
+
+        o erro de querer passar tudo como um ponteiro, mesmo sendo valores constantes, que nao tem necessidade algum de muda, 
+        nao que seja um erro, mas em algum momento uma complicacao de erros logicos vao ocorrendo e se acumulando de forma gradual
+
+        ! variaveis Globais de longe um dos meus maiores erros, com varias variaveis com a mesma indetificacao, se torna um grande ninho
+        de problemas, pois simplesmente, nao saber onde que e a razao do problema ou se compartilham o mesmo tipo. e andar no escuro 
+        e em tentativa em tentativa ate encontar o provavel erro.
+
+
+
+        Method_01
+    Alocacao de memoria:
+    O erro foi na hora de implementar-lo.
+    Em sua implentacao tive duvidas de como relizar.
+
+    int *vector = (int *) malloc (N_numbers * sizeof(int )); // resultado 
+
+    Como a funcao presente no metodo 1 e um auxiliar de extrema imporatancia no metodo 04, nao queria que mostrasse mais de uma vez
+o IO_id, disso dici fazer uma forma que ele mostrasse somente uma vez:
+
+    if (print_one == true ) { 
+    // indentificacao
+    IO_id ("Metodo auxilixar vector_Pa_three | version - V 2.0 \n ");
+    }  
+
+    fazendo desta forma, alem de nao parecer mais o codigo, como tudo faz parte de um if 
+    refiz assim:
+
+        // Variavel estatica para controlar se a mensagem ja foi impressa
+    static bool already_printed = false;
+
+    // Imprime a identificação apenas na primeira chamada
+    if (!already_printed) {
+        IO_id("Metodo auxiliar vector_Pa_three | version - V 2.0 \n");
+        already_printed = true; // Marca que a mensagem já foi impressa
+    }
+        
+
+
+Method_04
+
+    Um dos meu maiores problemas com esse exercicio foi a ideia de usar uma mesma funcao simplesmente para nao precisar de fazer a mesma coisa mais de uma vez
+em outro lugar, com isso tive que mudar suas caracteristicas como adicionar uma variavel booleana "already_printed = false;" que serve para nao printar mais de uma vez 
+algo que eu nao quero que apareça em outro metodo meu.
+    Tive que trocar a formatacao de vector, pois ,como vou ter que tratar com a mesma string que saiu do metodo auxiliar 01, precisei de alternar-la em uma 
+array de ponteiro.
+    apos isso, foi mais do mesmo. tudo correndo como esperava. 
+
+
+
+
+                            //------ Consideraçoes ------\\
+
+    Em algumas tentativas, percebi que o user poderia usar letras, numeros negativos e ate memo caracteres especiais
+com isso, existe na biblioteca a funcao "atoi" serve para tirar esse tipo  e converter tudo para uma string de inteiros
+disso, vou implementar na biblioteca io.h o IO_My_atoi.
