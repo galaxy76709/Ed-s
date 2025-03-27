@@ -1,6 +1,6 @@
 
 /*
-   Exemplo0 400 - v0.0. - 13 / 03 / 2025
+   Exemplo0 500 - v0.0. - 13 / 03 / 2025
    Author: Kayky_Gabriel_Marques
 
    Para compilar em terminal (janela de comandos):
