@@ -439,7 +439,7 @@ return result;
 void method_06()
 {
    // identificar
-   IO_id("EXEMPLO0406 - Method06 - v2.0");
+   IO_id("EXEMPLO0506 - Method06 - v2.0");
   
 
   // iniciando minha variavel
@@ -688,7 +688,7 @@ return result;
 void method_09()
 {
     // identificar
-    IO_id("EXEMPLO0409 - Method09 - v2.0");
+    IO_id("EXEMPLO0509 - Method09 - v2.0");
 
   // iniciando minha variavel
   int     N_numbers      =     0;
@@ -811,7 +811,7 @@ int calculate_factorial(int number) {
 void method_11()
 {
    // identificar
-   IO_id("EXEMPLO0411 - Method11 - v2.0");
+   IO_id("EXEMPLO0511 - Method11 - v2.0");
 
 
   // iniciando minha variavel
