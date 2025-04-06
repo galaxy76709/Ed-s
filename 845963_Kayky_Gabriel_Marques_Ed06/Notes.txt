@@ -1,0 +1,178 @@
+-----------------------------------------/-------\---------------------------------------------------
+
+
+Explicacoes: 
+    Em março dia 3 de 2025, o professor Theldo C. comentou sobre o uso de recursao e de suas formas de usar e como usar. E eu 
+em algum momentos chegamos em um assunto de pilha (Last in, firt out) lifo disso em minhas pesquisas achei uma ideia figurada de ilustrar essa 
+ideia.
+    Imagine que voce recebeu uma compra e precisa descer uma escada,mas moedas dos seus bolsos caiem, cada degrau voce deixa cair uma moeda/ nota 
+(valores no geral) e ate chegar para receber sua encomenda. apos isso, voce encontra uma caixa e decide subir novamente com todos os valores que estavam 
+em cada andar da escada acumulando assim, um valor 
+
+Ex:
+Notas(N)     Total(T)
+N =  0       T = 0
+N =  1       T = 0
+N =  2       T = 0
+N =  3       T = 0
+N =  4       T = 0
+N =  5       T = 0 
+N =  5       T = 5 - > acabou de pegar a caixa
+N =  4       T = 9
+N =  3       T = 12
+N =  2       T = 14
+N =  1       T = 15
+N =  0       T = 15
+
+    Pode ver que assim que todo o processo acabou ( receber a encomenda ) os valores acumulados em cada degrau foi tudo somado em seu valor Total (T).
+
+
+
+----------------------------------------/_  NOTAS  _\------------------------------------------------
+
+Method 03 
+
+por que o uso de 
+     " return result + Recursion_frac_three(N_numbers - 1, sum + 3, false);"
+O return result + Recursion_frac_three(N_numbers - 1, sum + 3, false);  é usado para acumular os resultados da recursão e retornar 
+a soma total das frações calculadas em cada chamada recursiva.
+Resumindo, vc soma o valor de result (sendo esse o resultado da proxima recursao) 
+
+
+//--
+
+
+Method 05
+
+    A utilização de uma variável para resolver este problema seria de pouco proveito, 
+pois seria necessario criar diversos testes para verificar se um determinado valor e impar ou nao.
+
+ No entanto, com a criacao de uma tabela, pode-se observar uma formula matematica que simplifica o processo.
+
+                            Formula para Numeros impares
+A fórmula que representa números ímpares pode ser expressa da seguinte forma:
+
+impar(x) = 2 * x - 1
+Essa expressão possibilita identificar números ímpares de maneira direta.
+
+                            Observação dos Valores
+A partir da análise da tabela a seguir, podemos notar um padrão nos valores de X e Y:
+
+| X | Y   | Soma |
+|---|-----|------|
+| 1 | 3   | 4    |
+| 2 | 4   | 7    |
+| 3 | 7   | 12   |
+| 4 | 12  | 19   |
+| 5 | 19  | 28   |
+
+Análise
+Observa-se que Y começa com o valor 3 e, a partir daí, utiliza-se o valor de X (que é ímpar) para calcular os demais elementos da tabela. 
+Assim, identificamos um padrão na relação entre X e Y.
+
+Method 07 
+
+    Pode notar que metodo sete pega uma string e apartir de uma recursao, inverte sua ordem
+    Ex: A B C
+        C B A 
+    
+    Neste exercicio eu decidi usar a formatacao 
+
+     fgets(str, 100, stdin);  
+
+     Com este formato a leitura da string se torna segura, por conta do uso do fgets.
+
+     A utilização dele neste codigo junto com o paramento 100 faz que eu saiba que seu tamanho predefinido em sua funcao.
+   
+    // Remove o '\n' que o fgets pode adicionar
+    str[strcspn(str, "\n")] = '\0'
+
+    procura a primeira ocorrência do caractere \n (quebra de linha) na string str.
+    Se encontrar \n, retorna o índice (posição) onde ele está. Então, substitui esse \n por \0 (terminador nulo), 
+    efetivamente removendo a quebra de linha da string.
+    Quando você lê uma string com fgets, ele inclui o \n (quebra de linha) no final da string (se houver espaço).
+    Essa linha remove o \n, deixando a string "limpa".
+
+Method 11
+f(x,n)=1+x3+x5+x7+⋯+x(2n+1)
+
+ é uma soma de potencias impares de x, ate um expoente maximo definido por 2n+12n+1.
+fazendo isso com recursão , e tambem podemos reaproveitar ou ajustar a funcao pow_in_x para calcular potencias de x.
+
+Method 12 
+ Observações:
+
+    O numerador segue a sequencia impar: 1, 3, 5, 7, 9, ...
+
+    O denominador segue potencias de 2 fatorial: 1!, 2!, 4!, 8!, 16!, ...
+
+    Ou seja, para cada termo ii, o denominador e (2i)!(2i)! 
+    
+    e o numerador e o numero impar 2i+12i+1.
+
+
+//--
+
+
+
+
+                            //------ ERRO ------\\
+
+    Globais: 
+    |_>
+
+//--
+Method 08 
+
+funcao 
+
+int Myis_digit (char * letter) {
+
+    // Verifica se a existencia de digitos 
+    for (int x = 0;  letter[x] != '\0'; x = x + 1 ){
+      bool is_true = letter[x] >= '0' && letter [x] >= '9';
+
+      if (is_true ){
+            return 
+      }
+      
+    }
+   
+}
+
+    Condição incorreta: 
+    
+    letter[x] >= '0' && letter [x] >= '9' (deveria ser <= '9')
+    Falta retorno para caso negativo
+    A função verifica todos os caracteres mas deveria verificar apenas um
+    Tipo de retorno não definido claramente
+
+
+    correcao :
+
+    bool Myis_digit(char letter) {
+    // Verifica se um único caractere é dígito
+    return (letter >= '0' && letter <= '9');
+
+//--
+
+
+    condicao incorreta
+
+    Função betwen_numbers - Problemas e Correção
+
+    Problemas identificados:
+    Variável answer não utilizada corretamente
+    Falta verificação se é dígito antes de chamar is_pair
+
+    Retorno inconsistente (void em um caso, int em outro)
+
+    Lógica de contagem confusa
+}
+
+                            //------ Consideraçoes ------\\
+
+    Ate entao foi o ed mais puxado que eu tive, eu estou colocando algumas ideias que eu tenho durante as aulas e oficinas como 
+de programaçao competitiva, mas foi um bom desafio, so nao tive muito tempo para adicionar as informaçoes nas Notas. 
+
+   
