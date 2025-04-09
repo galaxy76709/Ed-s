@@ -1,0 +1,64 @@
+ Method_01 - nao faz nada.
+
+   Consiste em fazer apartir de duas variavies 
+   (r,x)
+
+   r - > devera ser o raio de sua circuferencia 
+   x - > deverar ser a quantidade de partes que sera dividia 
+
+    Nocoes: 
+   * a funcao deverar parar assim que a dupla seja 0,0
+
+   * supor que o primeiro valor representará o raio de uma circunferência, 
+
+   * e o segundo valor representará em quantas partes dividí-la; 
+
+                    calcular o comprimento de uma dessas partes 
+        Usar constantes reais (double) em expressões que envolvam valores reais (double).
+
+         (5,2) -> calcular o comprimento da metade (2) da circunferência de raio igual a 5.
+
+tendo a preocupacao se o user digitar um valor negativo, vou fazer uma funcao estra simplemente por garantia, 
+
+
+
+
+
+
+Method_03 
+
+Declarar uma quantidade de vez que o programa sera lido  - > N vezes 
+
+Declarar um dois inteiros A , B. sendo estes mesmos limites 
+onde 
+A - >  e fechado 
+B - >  e aberto 
+
+              _> indica o numero que estou analizando 
+             |
+        [A <= X < B)
+         |      |_> O valor nao estar no limite de B
+         |_>O valor deverar estar no limite A
+        
+        12 ≤ x < 72
+
+
+Deve seguir as condicoes de: 
+  * serem pares 
+
+  Se X % 2 != 0 
+    "andar para o proximo valor 
+
+ * sua metade e dobro estão contidos no intervalo. 
+
+  Se x / 2 - > estiver dentro do limite [A <= X < B)
+            armazenar em um vetor 
+            
+  Se x * 2 - >  estiver dentro do limite 
+            armazenar
+
+            if (divisor && dobro)
+
+Se x for uma ponteiro, que le 2 vetores e passa seu valor "correto" para uma nova?
+
+
