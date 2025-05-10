@@ -1,0 +1,339 @@
+-------------// DESAFIO \\-------------
+Desafio da semana! fazer toda a leitura das strings apartir de 
+recursao! 
+
+os desavios estavam mais complicados que eu imaginei kkkk, entao foram os unicos que eu nao usei recursao 
+-------------// NOTES \\-------------
+
+Method_01
+
+A ideia por tras do metodo 01 lembra muito os ultimos exercicios do Ed02
+Se deve testar letras maiores que 'K'.
+ Uma ideia que eu tive para fazer e uma recursao, onde cada letra que passa no filto
+ (sendo esta maior que K) acho que vai ser mais desafiador
+    Apos rever o que eu errei e como eu poderia corrigilos, percebi que eu esqueci de fazer
+alocacao dinamica para receber e enviar os dados :|. eu nao sei como que eu deixei algo 
+tao basico de lado 
+
+Bom os erros ja se foram, junto com os warnings, mas ele nem ao menos compila, estou confuso.
+
+genuinamente nao gosto de fazer daquele jeito mas  estou ficando sem criatividade.
+
+Tive mais um erro, colocar o meu array com valor de 99 nao deu certo,
+aparente ele começou a testar com lixo.
+
+fique perdido, entei em loop infinito.
+
+finalmente, fuiciona
+
+
+Method_02
+
+    Bom, horas como essas eu iria amar um "POO" so para nao ter que repetir e ate mesmo 
+fazer um "ctrl c e v", usei meu metodo que planejei no metodo 1, e so troquei sua condicao 
+ao inves de comprar a letra com 'K' agora e com 'k' e ver se e menor ou maior 
+
+    Tive a ideia de chamar io_id para ter mais controle sobre oq esta acontecendo 
+porem, como se trata de uma recursao esquci que ele sempre vai ser chamado a quantidade
+de vezes que o metodo sera chamado .
+    Tive uma ideia para chamar ele so uma vez, fazer uma variavel booleana, com um contador 
+se o contador for maior que um, ele nao vai mais printar o io_id!
+    fiz meu metodo receber um novo parametro "one_call" que como o nome sugre, so vai chamar uma vez
+a funcao "io_id" como ela recebe um variavel verdadeira ela vai printar somente uma vez, porem, em
+sua recursao e trocada alterada por falso. disso, so chamado uma vez pela sua condicao.
+
+
+Method_03
+    A ideia deste metodo vai ser, ler a string e ver se minha letra e maior que 'K' porem,
+começar de tras para frente.
+
+    Incrivelmente, fazer com recursao e mais facil isso, mudando a forma da chamada a pilha vai 
+ser modelada da forma que eu quero 
+
+Method_04
+    A ideia deste metodo e simplesmente contar todos os caracteres de 'A' a 'Z' no caso 
+todos que fizerem parte do alfabeto, caracteres especiasi (!, @, #, $, %, &, *, <, >, :, ;, ?)
+nao deveram ser contado 
+
+Method_05
+    O metodo 5 visa ler a string ao contrario, disso, ler somente numeros que sejam par 
+alem de mostrar-los, apresentar um contador que mostra a quantide de numeros pares que a pareceram
+    vou usar o modelo do Method_03, como ele faz a recursao ao contrario, mudando as condicoes
+e seus fatores vai ser mais facil de manipular para chegar na resposta.
+    uma coisa indispensavel e a conversao de inteiro para char. Ele esta funcionando, menos meu contador 
+nao entendi o seu erro ate agora, ja fiz uma mudanças desnessarias como tirar o "int number" que nao fazia sentido
+ja que ja tinha sido declarado na inicio do metodo.
+    simplesmente nao entendi o por que nao esta funcionando, nao consegui resolver 
+
+
+Method_06
+    O metodo 6, e o inverso do Method_05, ja que a unica coisa que ele pede para ler e os numeros pares
+e neste ele le tudo, menos numeros impares e pede para mostrar e contar os outros caracteres.
+    nao apresentei erros neste :)
+
+    Method_07
+    O programa deve ler dois valores inteiros, a e b, que representam os limites de um intervalo fechado 
+[a:b]. Esse intervalo será usado para verificar se os números testados estão dentro dele. O programa deve ler um 
+valor inteiro n, que representa a quantidade de valores que serão testados. O programa deve ler n valores inteiros,
+um por vez. Para cada valor lido (x), ele deve verificar:
+
+Se o valor x é múltiplo de 3.
+Se o valor x está dentro do intervalo [a:b].
+
+O programa deve ler n valores inteiros, um por vez. Para cada valor lido (x), ele deve verificar:
+Se o valor x é múltiplo de 3.
+Se o valor x está dentro do intervalo [a:b].
+
+a ideia desta atividade nao e dificil, mas e trabalhosa (da para ver que eu nem quis esrever com as minhas palavar)
+
+RESUMINDO
+
+Define um intervalo [a:b]. ->vimos muito isso no ultimo ed
+
+Lê uma quantidade n de valores. -> passo base
+ 
+Verifica, para cada valor, se ele é múltiplo de 3 e se está dentro do intervalo.
+
+Conta e exibe quantos valores atendem às duas condições.
+
+
+fiquei tanto tempo que esquci de fazer as anotacoes, oq importa q funciona
+
+    Method_08
+    O programa e quase a mesma coisa do metodo 7, porem, ele verifica se o numero se ele e multiplo de 4 tambem, e caso for, nao deverar
+retornar o valor e o contador nao deve ser acionado, disso, mudando um pouco da logica e fazendo ele ficar mais "dificil"
+
+    Vi um video de um gringo explicando forma de comparacoes usando booleano, e decidi colocar em pratica resumindo, colocando minha afirmacao
+em uma variavel bool sera declarada como "true" e caso ela nao passe na minha condicao vai realizar o contrario. Eu genuinamente achei esse jeito
+um forma mais limpa e facil de se ler e interpretar o codigo, resumo as coisas faço mais legivel.
+
+    Method_09
+    contar e mostrar todos os valores lidos, pertencentes ao do intervalo, cujas partes inteiras forem pares e menores que 5.
+De inicio eu achei quer era para ver o final do numero real, mas ai que eu entendi, tive algumas complicaçoes mas de pois de ver 
+no stack overflow que para trocar o valor de uma varivael e submeterla ao valor de outro tipo, era so colocar seu tipo (int) na frente 
+da variavel e pronto! 
+    Permanece usando a ideia que eu tive no metodo 08 e permanece facil de se entender.
+
+    Method_10
+    Esse metodo foi um dos mais complicados ate agora, na aula de dia 10/03, professor falou sobre os loops mais uma vez
+e sobre "se o usuario" errar oq pode fazer, decedi colocar um while para repetir ate o usuario acertar e caso ele queria colocar outro
+valor.
+    O metodo visa ver a fraçao de sua parte (desconsiderar o valor inteiro e verificar o seu valor decimal ) e verificar se o valor esta entre 
+o intervalo aberto de 0 e 1
+    e de primeira eu usei uma funcao de c, chamada de "floor" ela serve para pegar o menor numero, usei a ja prototipada pela linguagem, 
+mas como estamos aqui para ver desafios, decedi fazer a minha!  
+
+
+    Method_12
+    de primeira, achei que seria falso, tive a ideia de reaproveitar grande parte do metodo 11, mas vi que nao seria o suficiente
+minha primeira ideia era comparar a string com a outra (only_non_alphanumeric), mas simplesmente nao fazia sentido, entao depois de varias
+pesquisas (eu usei IA sim pq eu fique perdido em algumas coisas) decedi que ia ser melhor usar mais uma vez boolean 
+
+    My_insalum(&letter[i]) A função My_insalum verifica se o caractere atual é alfanumérico (letra ou dígito).
+
+    retorna 1 (true) se for alfanumérico. retorna 0 (false) se não for. !My_insalum(&letter[i]) e a negação inverte seu valor:
+Se o caractere e alfanumérico, vira false. se nao true
+
+only_non_alphanumeric = only_non_alphanumeric && !My_insalum(&letter[i]);
+
+A variavel only_non_alphanumeric: começa como 1 (com a ideia de que começa com algum alfanumerico). e primeiro caractere alfanumerico
+encontrado, vira false. mantem o valor 0 ate o final, pois o && (and) so resulta em 1 se ambos os lados forem 1.
+                                -------------// consideracoes \\-------------
+    Levei em torno de 4 dias para fazer esse tp, eu poderia ter ido pelo caminho facio, mas qual e é graça de fazer coisas que 
+sao faceis? eu quebrei a cabeça varias vezes, vi varios videos e adimito que usei gpt e outras inteligencis artificiais para ter uma ideia
+melhor de como fazer. eu pessoalmente nao gosto de monitoria, prefiro fazer as coisas sozinho, entao uso para corrigir e para me dar dicas quando 
+eu estou perdido, mas nunca a resposta. 
+    Esse ed, me deu um leque de ideias para implementar em futuros codigos e projetos! "suei a camisa" como alguns dizem! amanha dia 11/03
+ja vou começar o proximo.
+
+    Muito obrigado desde ja, atenciosamente     
+                                                        -Kayky gabriel Marques
+    
+
+
+
+-------------// ERROS \\-------------
+
+Method_01
+
+O codigo parou na hr de scaner, acho que nao sei usar muito bem o "io.h".
+recebi alguns warnings como:
+if (*letter == NULL)
+-> sendo este aviso causado por a comparacao de um valor inteiro
+com um valor de ponteiro
+
+claro que esta errado, como vc quer comparar valores que nao sao homegenicos
+
+if (*letter == '/0')
+-> francamente, nem sei oq tinha de errado comigo quando eu escrevi isso 
+
+como que vc quer ver se um ponteiro e '/0'? faz sentido nenhum 
+
+read_string(*letter);
+nao fiz a inicializacao de um ponteiro direito, eu realmente preciso de estudar melhor
+o "io.h".
+    Uma longa parte do meus erros foi por conta do mal uso de alocacao dinamica.
+Como: usou scanf("%s", letter), sendo letter uma variavel char, n um array ou ponteiro para armazenar uma string.
+Isso causa erro de segmentacao ao tentar acessar a memoria indevidamente
+
+--------------------//---------------------------
+De:
+scanf("%s", letter);
+
+Para:
+char str[100];
+scanf("%99[^\n]", letter);
+
+Passagem de ponteiros:
+De: read_string(&letter);
+
+Para:
+read_string(stletter);
+e eu tentei passar o endereco, o erro foi por conta de que imaginei que o metodo
+precisaria de um ponteiro (logo o endereco de sua variavel) para realizar o procedimento
+mas quem diria que nao 
+
+Condicao incorreta na recursao:
+De: if(letter == '\0')
+
+Para: if(*letter == '\0')
+
+assim, verifico oq esta sendo apontado corresponde com o final de uma linha.
+da outra forma, verificava se o endereco era igual a '\0' algo que nao faz sentido
+--------------------\\---------------------------
+
+Method_04
+    Por hora minha funcao nem ao menos chegou a ler o que tinha que ser escrito
+decidi fazer pequenos ajustes, mas ainda perciste no erro. 
+um dos meus erros foram a forma que eu coloquei minha condicao 
+De:
+  if (*letter >= 'a' && *letter <= 'z' || 
+      *letter >='A' && *letter <= 'Z' ) 
+assim ele nao faz duas verificaoes como desejo, logo 
+sua correçao deverea ser 
+
+Para 
+if ((*letter >= 'a' && *letter <= 'z') ||
+ (*letter >= 'A' && *letter <= 'Z'))
+
+
+--------------------//---------------------------
+
+--------------------\\---------------------------
+
+Method_05
+    Na hora de comparar e trocar os valores de char para int tive duvidas
+De:
+ if (*letter >= '0' && *letter <= '9')
+
+Para 
+  if (*letter >= '0' && *letter <= '9') 
+         int value =  *letter - '0';  
+         int *number = (*number * 10) + value;  
+
+    claro que praticamente nao tinha feito mudança nenhuma, mas apos pesquisar vi como que eram feitas
+usando a tabela ASCII, e uma das formas de contornar esse problema.
+    disso um dos meu problemas foi a atuliazacao do valor usando um ponteiro, o seu valor so sera atuliazado
+nao sera perdido 
+
+
+
+--------------------//---------------------------
+
+--------------------\\---------------------------
+
+Method_08
+    Na hora de negar os multiplos de 3
+De:
+  if (numbers[index] % 3 == 0  ){ // -> verificar se o numero multiplo de 3
+
+
+   if (numbers[index] % 4 == 0 ) {  // -> verificar se o numero e multiplo de 4
+      printf("O numero [%d] e multiplo de 3 e de 4 (NAO conta).\n \n", numbers[index]);
+
+   } else if (numbers[index] >= firts_interval && 
+      numbers[index] <= second_interval){  // else mult four
+
+      printf("O numero [%d] e multiplo de 3 e faz parte do intervalo de [%d : %d] \n", numbers[index], firts_interval, second_interval);
+         (*count)++ ;
+   } 
+} else { // else mult 3 and interval
+      printf("o numero [%d], NAO faz e multiplo de 3(NAO conta)\n", numbers[index]);
+}
+
+
+
+Para 
+
+  int    current_number      =  numbers[index];
+  bool   mult_of_three       =  numbers[index] % 3 == 0;
+  bool   mult_of_four        =  numbers[index] % 4 == 0;
+  bool   in_interval         = (current_number >= first_interval && current_number <= second_interval);
+
+
+  if ( mult_of_three ){ // -> verificar se o numero multiplo de 3
+  if ( mult_of_three ){ // -> verificar se o numero multiplo de 3
+   
+   if (mult_of_four) {  // -> verificar se o numero e multiplo de 4
+      printf("O numero [%d] e multiplo de 3 e de 4 (NAO conta). \n", numbers[index]);
+
+   } else if (in_interval){
+      printf("O numero [%d] e multiplo de 3 e faz parte do intervalo de [%d : %d] \n", numbers[index], first_interval, second_interval);
+      (*count)++ ;
+   } else {
+      printf("O numero [%d] nao e multiplo de 3 (NAO conta). \n", numbers[index]);
+   }
+}
+
+    Tive essa ideia apos ver um video de um gringo falando sobre como usar booleano em condicao
+dessa forma, declarando elas desse jeito, pode notar que sua leitura fica mais facil, alem disso ele verifica,
+se e verdade (com base na operaçao) disso se for verdade executa se nao, faz a sua condicao inversa (else)
+
+
+--------------------//---------------------------
+
+--------------------\\---------------------------
+
+Method_10
+De:
+        double fractional = numbers[index] - floor(numbers[index]); // Parte fracionaria
+
+Para 
+
+    // implementacao de uma funcao ja existene chamada floor para pegar o numero e 
+double My_floor (int value ) {
+   // caso o numero foi ja for inteiro
+   if ((int) value == value ) {
+      return value;
+   }
+   // caso ele for maior que 0
+   if(value > 0){
+      return (int)value; // -> retornar o valor inteiro 
+   }
+
+   return (int) value - 1; // caso for negativo, arredonda para o menor inteiro
+}
+    
+    void count_fractional_in_range(double *numbers, double first_interval, double second_interval, int index, int size, int *count, bool one_call) {
+    if (one_call) {
+        IO_id("\ncount_fractional_in_range - v 4.0\n");
+    }
+
+    if (index < size) { // Passo base
+        double fractional = numbers[index] - My_floor(numbers[index]); // Parte fracionaria
+
+        if (fractional > first_interval && fractional < second_interval) { // -> ver se esta dentro do intervalo aberto 
+            printf("%.2lf tem parte fracionaria %.2lf dentro do intervalo ]%.2lf : %.2lf[\n",numbers[index], fractional, first_interval, second_interval);
+            (*count)++;
+
+        } else {
+            printf("[%.2lf] nao contem parte fracionaria [%.2lf] dentro do intervalo ]%.2lf : %.2lf[\n",
+                   numbers[index], fractional, first_interval, second_interval);
+        }
+        // Chamada recursiva correta
+        count_fractional_in_range(numbers, first_interval, second_interval, index + 1, size, count, false);
+    }
+}
+
+
+--------------------//---------------------------
