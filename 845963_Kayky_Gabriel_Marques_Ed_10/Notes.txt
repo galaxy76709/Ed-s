@@ -1,0 +1,575 @@
+-----------------------------------------/ struct \---------------------------------------------------
+
+    O conceito de struct, e uma tipo de estrutra e ou varival de um tipo de estrutra (o quao reduntante foi esta frase?)
+Struct permite a combinacao de variaveis de tipos diferemtes ( heterogenias ), uma vez definida, uma struct cria um tipo de dado
+personalizado, que pode ser usado para declarar variavel e objetos de sua estrutra.
+
+    Uma form mais simples de se imaginar isto e um 
+----------------------------------------/_  Ex  _\------------------------------------------------
+    Nesta parte alem da explicacao de CADA um dos metodos separados por Paragrafos (P_...) revela a ideia por tras dos metodos
+alguns eu achei irrelevante mostrar, afinal, muitos fazem a mesma coisa porem, com pequenas alteacoes, se for muito siguinificante mostrarei 
+
+P_01
+    int_Array e uma estrutura que contem:
+
+        O tamanho total do array (length)
+
+        Os dados em si (data - um ponteiro para a area de memoria alocada)
+
+        Um indice atual (ix) - provavelmente para controle de posicao
+
+
+    ref_int_Array e um ponteiro para essa estrutura, o que e util para:
+
+        Passar o array por referencia para funcos
+
+        Alocar dinamicamente a estrutura
+
+        Modificar o array dentro de funcoes
+
+//--
+
+P_02
+
+    Aloca memória para a estrutura que controla o array (int_Array).
+
+    Se n > 0, aloca memória para armazenar n inteiros.
+
+    Inicializa os campos:
+
+        length = tamanho do array (n).
+
+        data = ponteiro para os inteiros (alocado dinamicamente).
+
+        ix = índice atual (começa em 0).
+Retorna o ponteiro para o array criado (ou NULL se falhar).Se algo der errado:
+ 
+        Se não houver memória, imprime "ERRO: Falta espaco" e retorna NULL.
+
+        Se n ≤ 0, cria a estrutura, mas não aloca dados (data = NULL, length = 0).
+
+Para que serve?
+
+    *Criar um array redimensionável de forma organizada, guardando tamanho, dados e índice atual em uma única estrutura.*
+
+//--
+
+P_03
+    Sereve como um flush, apos o uso e execucao do codigo, ele limpa o array temporario 
+
+//--
+
+P_04
+
+    Uma funcao para printar os valores, ( como o proprio nome dela fala ), acho interessante registrar como as coisas funcional nela: 
+
+    if ( array.data ) -  aqui, ele verifica se "data" nao esta apontando para o nulo, (lembrando que ela e um apontador de inteiros)
+     
+
+       for ( array.ix = 0;  array.ix < array.length ; array.ix  =  array.ix  +  1 )  ja aqui, vemos que o laço de repeticao se inicia com
+       seu endereço ( ix ) no 0 , apos isso uma verificao se seu endereco e menor que seu tamanho, caso seja verdade ele vai andar sua posicao
+       (praticamente um for normal, somente com o acrecimo do uso de struct)
+        
+
+         // mostrar valor 
+            printf ( "%2d: %d\n", array.ix, array.data [ array.ix ] ); 
+            aqui, sera printado o endereco ( ix ) e o que esta contido no apontador "data" no endereco de ix 
+
+//-- 
+    
+Ex_method_01_
+
+ Gera uma arranjo de tamanho 5 e usando 4 funcoes printa de 1 a 5, em sua respectivamentas posicoes
+
+//--
+
+P_05
+    Passo a Passo Simplificado
+
+    Pergunta o tamanho do array
+
+        O usuário digita quantos números quer informar (ex.: length = 5).
+
+        Só aceita valores maiores que zero.
+
+    Prepara espaço na memória
+
+        Aloca memória para guardar todos os números.
+
+        Se falhar, retorna um array vazio (length = 0).
+
+    Lê os números um por um Para cada posição do array, mostra um prompt como:
+    0 : [usuário digita um número]  
+    1 : [usuário digita outro número]  
+    ...  
+
+    Armazena cada valor no array.
+    Retorna o array preenchido A estrutura retornada contém:
+
+        length: tamanho do array.
+
+        data: os números digitados.
+
+        ix: último índice preenchido.
+
+//--
+
+Ex_method_02_
+    Ao receber um certo tamanho do usuario, e apos cada parte de seu indice tiver sido "preenchido" ele vai printar 
+    da mesma forma que fora posicionado no seu arranjo 
+
+ //--
+
+//--
+
+P_06
+    De fomra bem resumida, ele faz a mesma coisa que P_04, porem, ele cria um FILE que realiza essa acao
+    tanto que em seus chamados, ele chama a funcao de print!
+
+//--
+
+Ex_method_03_
+
+//--
+
+P_07    
+        Abre o arquivo:
+
+         Recebe o nome do arquivo (fileName)
+
+            Tenta abrir no modo leitura de texto ("rt")
+
+        Verifica se o arquivo existe:
+
+        Se conseguir abrir, prossegue
+
+        Se não conseguir, retorna 0 (indicando falha)
+
+         Lê o tamanho do array:
+
+        Lê um valor inteiro do arquivo usando fscanf
+
+        Verifica se o valor é válido (deve ser > 0)
+
+        Se for inválido, mostra erro e define tamanho como 0
+
+    Fecha o arquivo e retorna o tamanho lido
+
+//--
+
+P_08
+    Inicialização:
+
+        Abre o arquivo especificado em modo leitura ("rt")
+
+        Declara uma estrutura int_Array estática para armazenar os resultados
+
+    Verificação do Arquivo:
+
+        Checa se o arquivo foi aberto com sucesso
+
+        Se falhar, retorna um array vazio (length = 0)
+
+    Leitura do Tamanho:
+
+        Lê o primeiro valor do arquivo, que deve ser o tamanho do array
+
+        Valida se o tamanho é positivo
+
+    Alocação de Memória:
+
+        Reserva espaço para armazenar os inteiros usando IO_new_ints
+
+        Verifica se a alocação foi bem-sucedida
+
+    Leitura dos Dados:
+
+        Lê os valores inteiros do arquivo um por um
+
+        Armazena no array até preencher todos os elementos ou chegar ao final do arquivo
+
+    Retorno:
+
+        Retorna a estrutura int_Array contendo:
+
+            length: tamanho do array
+
+            data: ponteiro para os dados lidos
+
+            ix: índice do último elemento lido
+
+    Características Importantes
+
+        Tratamento de Erros:
+
+            Verifica a abertura do arquivo
+
+            Valida o tamanho do array
+
+            Confirma a alocação de memória
+
+    Formato do Arquivo Esperado:
+
+    5       ← Tamanho do array
+    10      ← Elemento 0
+    20      ← Elemento 1
+    30      ← Elemento 2
+    40      ← Elemento 3
+    50      ← Elemento 4
+
+//-- 
+
+P_09
+    O que faz?
+
+    Cria uma cópia independente de um array de inteiros (int_Array), alocando nova memória para os dados.
+    Passo a Passo Simplificado
+
+        Verifica se o array original é válido
+
+            Se array.length ≤ 0, retorna NULL e exibe erro.
+
+        Aloca memória para a cópia
+
+            Usa new_int_Array() para criar uma nova estrutura.
+
+            Aloca espaço para os dados com IO_new_ints().
+
+        Copia os valores
+
+            Passa por cada elemento do array original e copia para o novo.
+
+        Retorna a cópia
+
+            Se tudo der certo, retorna o novo array (ref_int_Array).
+
+            Se falhar em qualquer etapa, retorna NULL.
+
+
+    Quando Usar?
+
+    * Quando precisa modificar um array sem alterar o original
+    * Para evitar efeitos colaterais em funções que manipulam arrays
+    * Em operações que exigem versões independentes dos dados
+
+//--
+
+P_10 
+    Aloca a estrutura principal (int_Matrix)
+
+        Se falhar, retorna NULL.
+
+    Inicializa valores padrão
+
+        rows = 0, columns = 0, data = NULL.
+
+    Se rows > 0 e columns > 0:
+
+        Aloca um array de ponteiros (linhas).
+
+        Para cada linha, aloca um array de inteiros (colunas).
+
+    Inicializa índices (ix = 0, iy = 0)
+
+        Usados para navegar na matriz depois.
+
+    Retorna o ponteiro para a matriz (ref_int_Matrix).
+
+//--
+
+P_11
+    Calcula um valor aleatório usando rand() % (second_value - first_value) (que gera um número entre 0 e second_value - first_value - 1).
+
+    Soma first_value para deslocar o intervalo, resultando em um número entre first_value e second_value - 1.
+
+//--
+
+P_12
+    Funcionamento:
+
+    Verifica se o array é válido (dados não nulos)
+
+    Percorre todo o array comparando cada elemento com o valor alvo
+
+    Quando encontra, imprime a posição do valor
+
+    Retorna sempre o último índice verificado (igual ao tamanho do array)
+
+//--
+
+P_13
+    - Objetivo: Preencher array com valores do usuário
+    - Funcionamento:
+    1. Verifica se data != NULL
+    2. Se válido:
+        * Percorre array
+        * Solicita valores via IO_readint
+        * Reseta index para 0
+    3. Se inválido: mostra mensagem de erro
+    - Características:
+    * Modifica estrutura diretamente
+    * Interface interativa
+    * Controle básico de alocação
+    - Fluxo:
+    Entrada: estrutura ref_array
+    Saída: array preenchido ou mensagem de erro
+
+//--
+
+P_14
+  - Objetivo: Ler um array de um arquivo texto
+    - Parâmetro:
+    * fileName: nome do arquivo a ser lido (chars)
+    - Retorno: Estrutura ref_array preenchida ou NULL
+
+    Funcionamento:
+    1. Abre arquivo no modo texto ("rt")
+    2. Se arquivo aberto com sucesso:
+    a) Lê o primeiro valor como tamanho do array (size)
+    b) Cria nova estrutura de array com new_array(size)
+    c) Preenche o array com os valores restantes do arquivo
+    d) Fecha o arquivo
+    3. Se falha ao abrir arquivo: retorna NULL
+
+//--
+
+P_15
+    - Objetivo: Comparar dois arrays contidos em estruturas ref_array
+    - Parâmetros:
+    * array_1: primeira estrutura de array
+    * array_2: segunda estrutura de array
+    - Retorno: 
+    * true: se arrays forem idênticos
+    * false: se diferentes ou inválidos
+
+    Funcionamento:
+    1. Verificação inicial:
+    - Checa se ambos arrays são válidos (data não nulo)
+    - Compara tamanhos dos arrays
+        * Se diferentes: imprime erro e retorna false
+
+    2. Comparação elemento a elemento:
+    - Para cada posição dos arrays:
+        * Imprime valores sendo comparados
+        * Se encontrar diferença:
+        - Indica posição da diferença
+        - Retorna false imediatamente
+
+    3. Resultados possíveis:
+    - true: se todos elementos forem iguais
+    - false: se arrays tiverem tamanhos diferentes, elementos diferentes ou forem inválidos
+
+//--
+
+P_16
+    - Objetivo: Criar novo array com combinação de dois arrays existentes
+    - Parâmetros:
+    * array_1: primeiro array de entrada
+    * array_2: segundo array de entrada
+    * x: fator multiplicativo adicional
+    - Retorno: 
+    * Novo array (ref_array) com resultados
+    * NULL em caso de erro
+
+    Funcionamento:
+    1. Verificação inicial:
+    - Cria array auxiliar do mesmo tamanho que array_1
+    - Verifica se pelo menos um array tem dados (condição OR)
+    - Compara tamanhos dos arrays:
+        * Se diferentes: 
+        - Imprime mensagem de erro
+        - Libera memória do array auxiliar
+        - Retorna NULL
+
+    2. Operação principal:
+    - Para cada elemento:
+        * Multiplica elementos correspondentes de array_1 e array_2
+        * Multiplica pelo fator x
+        * Armazena resultado no array auxiliar
+
+    3. Retorno:
+    - Retorna o novo array preenchido se operação for bem sucedida
+    - Retorna NULL em caso de erro
+
+//--
+
+----------------------------------------/_  NOTAS  _\------------------------------------------------
+
+Method_01
+
+
+
+ Comecando no metodo 1, sera necessario uma strcuct que contenha 
+ uma quantida de numero n 
+ dois numeros inteiros
+ usando rand, verificar os numeros que estao entre intervalo 
+ e de um arranjo seu intervalo 
+
+ com isso, a proposta e fazer em uma quantidade n 
+ numeros aleatorios onde deve calcular 
+ quais numeros fazem parte de seu arranjo 
+
+ 
+ e cada um ser posicionado em um arquivo chamado 
+ DADOS.TXT (usando o arranjo ) um por linha 
+
+ / ideia -> usar a funcao para limpar e inicializar o array 
+
+//--
+
+
+Method_02
+
+    A atividade proposta pelo metodo 2 era:
+
+    receber um uma string q seria o nome do arquivo, verificar a existencia do arquivo;
+    em um arranjo verificar se existe um valor em expecifico ( target )
+    caso ele exista retornar verdadeiro, caso contrario, falso.
+
+
+//--
+
+
+Method_03 
+
+    o metodo 03 pede-se:
+    
+    uma funcao que: 
+
+    verificar a existencia de dois arquivos passado pelo proprio user
+    verificar se o conteudo dentro deles sao iguais
+    verficar se o tamanho deles se coicidem, caso nao, 
+    retornar falso
+
+
+//--
+
+Method_04 
+    o metodo 04 pede: 
+    
+    uma funcao que:
+
+    verificar a existencia de dois arquivos passado pelo proprio user
+    verificar se o conteudo dentro deles sao iguais
+    verficar se o tamanho deles se coicidem, caso nao, 
+    retornar falso
+
+    fazer um novo arranjo, multiplicando o valor de cada um dos outros 2
+    com uma constante inserida pelo user
+    1 arranjo       2arranho    constante 
+
+    1               6               x
+    2               7
+    3               8
+    4               9
+
+    array_assistente = (1 * 6) * x = y
+
+//--
+
+
+Method_05
+
+    metodo 05 pede para:
+
+    criar uma funcao que faça a transposnta de uma matriz, ( trocar suas linhas pelas colunas )
+
+    verificar a existencia de uma arquivo passado pelo proprio user
+    caso nao existir retornar NULL
+    
+
+
+Method_06
+    Metodo 06 pede para calcular a soma dos primeiros valores positivos começando no valor 3, multiplos de 3 e nao multiplos de 4. 
+Testar essa funcao para quantidades diferentes e mostrar os resultados em outro metodo. 
+    Com isso, uma logica que eu usei foi declarar variaveis booleanas
+
+         bool is_mult_four  =  (!(vector[i] % 4 == 0 )  &&  (vector[i] % 3 == 0)); // funcao auxiliar para condicao 
+        sendo esta primeira, uma variavel para verificar se a posicao do vetor / seu valor, e divisivel por 4 e se o mesmo e divisil por tres 
+    com isso, a primeira parte do desafio foi realizada 
+
+         bool just_positive = (  vector[ i ] >=  0 );
+        com essa, e para verificar se o valor e positivo, caso seja ele nao va adicionar-lo a soma 
+
+Method_07
+
+    calcular a soma dos inversos (1/x) dos primeiros valores positivos, começando no valor 4, múltiplos de 4 e não múltiplos de 5. 
+Testar essa função para quantidades diferentes e mostrar os resultados em outro método. 
+    Minha ideia foi andar com o array sempre com seus valores de 4 em 4 e adicionar duas variaveis booleanas sendo: 
+
+         bool is_mult_four = (vector[i] % 4 == 0);
+         bool is_mult_five = (vector[i] % 5 == 0);
+         bool is_positive = (vector[i] >= 0);
+
+         sendo elas respectivamentes: verificar se caso for multiplo de 4 se for multiplo de 5 e se for positivo seu valor
+
+                  if (is_mult_four && !is_mult_five && is_positive) {
+             result += 1.0 / vector[i];
+            }   
+        E apartir de sua condicao principal, e notavel que caso for postiva, diferente de multiplo de 5 e for multiplo de 4 sua acao sera realizada
+    caso contrario o array continuarar sendo varrido e verifiado 
+    
+
+                            //------ ERRO ------\\
+
+    Globais: 
+    |_> nesta parte e so aqueles erros bobos mas que mesmo assim, sao erros 
+
+        adicionar o %d quando tratamos de double, contas que precisam de valores reais, sao truncados e disso, 
+        multiplicacoes, divisoes e outros tipos de operaçoes matematicas, nao sao capazes de funcionar por conta da forma que foram passadas
+
+        o erro de querer passar tudo como um ponteiro, mesmo sendo valores constantes, que nao tem necessidade algum de muda, 
+        nao que seja um erro, mas em algum momento uma complicacao de erros logicos vao ocorrendo e se acumulando de forma gradual
+
+        ! variaveis Globais de longe um dos meus maiores erros, com varias variaveis com a mesma indetificacao, se torna um grande ninho
+        de problemas, pois simplesmente, nao saber onde que e a razao do problema ou se compartilham o mesmo tipo. e andar no escuro 
+        e em tentativa em tentativa ate encontar o provavel erro.
+
+
+
+        Method_01
+    Alocacao de memoria:
+    O erro foi na hora de implementar-lo.
+    Em sua implentacao tive duvidas de como relizar.
+
+    int *vector = (int *) malloc (N_numbers * sizeof(int )); // resultado 
+
+    Como a funcao presente no metodo 1 e um auxiliar de extrema imporatancia no metodo 04, nao queria que mostrasse mais de uma vez
+o IO_id, disso dici fazer uma forma que ele mostrasse somente uma vez:
+
+    if (print_one == true ) { 
+    // indentificacao
+    IO_id ("Metodo auxilixar vector_Pa_three | version - V 2.0 \n ");
+    }  
+
+    fazendo desta forma, alem de nao parecer mais o codigo, como tudo faz parte de um if 
+    refiz assim:
+
+        // Variavel estatica para controlar se a mensagem ja foi impressa
+    static bool already_printed = false;
+
+    // Imprime a identificação apenas na primeira chamada
+    if (!already_printed) {
+        IO_id("Metodo auxiliar vector_Pa_three | version - V 2.0 \n");
+        already_printed = true; // Marca que a mensagem já foi impressa
+    }
+        
+
+
+Method_04
+
+    Um dos meu maiores problemas com esse exercicio foi a ideia de usar uma mesma funcao simplesmente para nao precisar de fazer a mesma coisa mais de uma vez
+em outro lugar, com isso tive que mudar suas caracteristicas como adicionar uma variavel booleana "already_printed = false;" que serve para nao printar mais de uma vez 
+algo que eu nao quero que apareça em outro metodo meu.
+    Tive que trocar a formatacao de vector, pois ,como vou ter que tratar com a mesma string que saiu do metodo auxiliar 01, precisei de alternar-la em uma 
+array de ponteiro.
+    apos isso, foi mais do mesmo. tudo correndo como esperava. 
+
+
+
+
+                            //------ Consideraçoes ------\\
+
+    Em algumas tentativas, percebi que o user poderia usar letras, numeros negativos e ate memo caracteres especiais
+com isso, existe na biblioteca a funcao "atoi" serve para tirar esse tipo  e converter tudo para uma string de inteiros
+disso, vou implementar na biblioteca io.h o IO_My_atoi.
