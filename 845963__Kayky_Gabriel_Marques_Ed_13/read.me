@@ -1,0 +1,106 @@
+Pelos erros que apareceram nos exemplos foi feito estas alteracoes 
+
+RELATÓRIO DE MUDANÇAS - Contato.hpp
+====================================
+
+P_0 - REMOÇÃO DE DUPLICATAS DE CONSTRUTORES PADRÃO
+---------------------------------------------------
+Problema:
+  Havia dois construtores "Contato()" com a mesma assinatura.
+  - Um apenas inicializava as strings.
+  - Outro fazia isso e também chamava "setErro(0)".
+
+Solução:
+  Manteve-se o mais completo:
+    Contato()
+    {
+        setErro(0);
+        nome = "";
+        fone = "";
+    }
+
+P_1 - REMOÇÃO DE DUPLICATAS DO CONSTRUTOR COM PARÂMETROS
+----------------------------------------------------------
+Problema:
+  Dois construtores "Contato(std::string, std::string)":
+    - Um com atribuição direta.
+    - Outro com uso de setNome/setFone e verificação de erro.
+
+Solução:
+  Manteve-se o que valida os parâmetros:
+    Contato(string nome_inicial, string fone_inicial)
+    {
+        setErro(0);
+        setNome(nome_inicial);
+        setFone(fone_inicial);
+    }
+
+P_2 - REMOÇÃO DE DUPLICATAS DOS MÉTODOS SETTERS
+------------------------------------------------
+Problema:
+  Métodos setNome e setFone foram definidos duas vezes:
+    - Um com atribuição direta.
+    - Outro com verificação de validade.
+
+Solução:
+  Manteve-se a versão com verificação e setErro:
+    void setNome(string nome)
+    {
+        if (nome.empty())
+            setErro(1);
+        else
+            this->nome = nome;
+    }
+
+    void setFone(string fone)
+    {
+        if (fone.empty())
+            setErro(2);
+        else
+            this->fone = fone;
+    }
+
+P_3 - REORGANIZAÇÃO DA ORDEM DOS MÉTODOS
+-----------------------------------------
+Problema:
+  Métodos e construtores estavam fora de ordem lógica, dificultando leitura.
+
+Solução:
+  Organizou-se da seguinte forma:
+    - Construtores (padrão, com parâmetros, por cópia)
+    - Métodos set
+    - Métodos get
+    - Método toString
+    - Método hasErro
+
+P_4 - PADRONIZAÇÃO DA FORMATAÇÃO E LIMPEZA GERAL
+-------------------------------------------------
+Problema:
+  Comentários repetidos, identação inconsistente e espaços desnecessários.
+
+Solução:
+  - Comentários organizados
+  - Espaços e quebras de linha ajustadas
+  - Layout mais limpo e consistente
+
+P_5 - MANUTENÇÃO DO USING REF_CONTATO
+
+
+P_14 - Implementado método público readFromFile(const std::string&) para ler nome e fone de um arquivo texto.
+       Se o nome lido for não vazio, os dados são atribuídos ao objeto. Caso contrário, o erro 5 é registrado.
+       O método de teste method_14 usa esse método e imprime os dados ou erro conforme o caso.
+
+P_15 - Implementado método público writeToFile(const std::string&) para gravar os dados de um contato em arquivo.
+       O método grava primeiro o tamanho total do nome + fone, seguido pelas informações em linhas separadas.
+       O método de teste method_15 grava um objeto em "Pessoa1.txt" e informa sucesso ou erro na gravação.
+
+-------------------------------------
+Nota:
+  O typedef/alias usando "using ref_Contato = Contato*" foi mantido como estava,
+  pois está correto e auxilia no uso de ponteiros para objetos da classe Contato.
+
+
+
+
+
+FIM DO RELATÓRIO
